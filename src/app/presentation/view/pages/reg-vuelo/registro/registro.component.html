@@ -1,0 +1,37 @@
+<h1 class="text-2xl">Seleccion de Asientos</h1> 
+<div class="grid grid-cols-4 gap-2">
+    @for( item of seatList; track item.id ){
+        <button [ngClass]="{'selected-button': item.isSelected}"  (click)="handleReservationTemp(item.id)" class="w-10 h-10 p-10 bg-green-500">{{item.codSeat}}</button>
+    }
+</div>
+<div [formGroup]="formLogin" class="mt-10 flex justify-start">
+    <div class="card">
+        <p-floatLabel class="m-2 my-2">
+            <input pInputText
+                class="w-full p-3 border-2 my-2"
+                formControlName="userName"
+                minlength="8"
+                [style]="{ width: '100%' }"
+                id="userName" />
+    
+            <label for="userName">Nombre de Usuario</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <input pInputText
+                class="w-full p-3 border-2"
+                formControlName="password"
+                minlength="4"
+                [style]="{ width: '100%' }"
+                id="password" />
+    
+            <label for="password">Contrasena</label>
+        </p-floatLabel>
+        <div class="flex justify-start mt-4">
+
+            <p-button [disabled]="!formLogin.valid" (click)="handleReservationSaga()" label="Guardar"></p-button>
+        </div>
+    </div>
+    
+    
+</div>
+

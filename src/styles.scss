@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/tailwindcss/base.css" layer(tailwindcss);
+@import "../node_modules/tailwindcss/components.css" layer(tailwindcss);
+@import "../node_modules/tailwindcss/utilities.css" layer(tailwindcss);
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+
+.p-inputtext {
+    border-color: #C0E3F9;
+    width: 100%;
+}
+
+.p-inputtext:focus {
+    border-color: #8fd4ff;
+}
+
+.p-dropdown {
+    border-color: #C0E3F9;
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+
+
+.custom-tb .p-datatable-thead > tr > td {
+    background-color: #F9F9F9;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+}
+
+
+
+

@@ -1,0 +1,112 @@
+<h1 class="text-2xl">Vuelos Disponibles</h1>
+<p-divider type="solid" class="w-full" />
+<div class="grid mt-4">
+    <div class="grid grid-cols-4 gap-4 mt-8">
+        <p-floatLabel>
+            <p-calendar
+                id="period"
+                [(ngModel)]="date"
+                selectionMode="range"
+                inputId="period"
+                [style]="{ width: '100%' }"
+                appendTo="body">
+            </p-calendar>
+            <label for="period">Ida - Vuelta</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <p-inputNumber
+                class="w-full"
+                [(ngModel)]="codVuelo"
+                mode="decimal"
+                [style]="{ width: '100%' }"
+                inputId="withoutgrouping"
+                [useGrouping]="false"
+                id="idaVuelta" />
+
+            <label for="idaVuelta">Codigo Vuelo</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <p-inputNumber
+                id="nroPersonas"
+                [maxlength]="2"
+                class="w-full"
+                [(ngModel)]="nroPersonas"
+                mode="decimal"
+                [style]="{ width: '100%' }"
+                inputId="withoutgrouping"
+                [useGrouping]="false" />
+
+            <label for="nroPersonas">Nro. Personas</label>
+        </p-floatLabel>
+        <div>
+            <p-button
+                icon="pi pi-search"
+                [rounded]="true"
+                [text]="true"
+                [raised]="true"
+                severity="secondary"
+                class="mx-2"></p-button>
+            <p-button
+                icon="pi pi-filter-slash"
+                [rounded]="true"
+                [text]="true"
+                [raised]="true"
+                severity="secondary"
+                class="mx-4"></p-button>
+           
+        </div>
+    </div>
+    <p-table [value]="dataList()" class="mt-10" styleClass="custom-tb">
+        <ng-template pTemplate="header" let-columns>
+            <tr class="text-sm">
+                <td>COD. VUELO</td>
+                <td>PARTIDA</td>
+                <td>FECHA PARTIDA</td>
+                <td>DESTINO</td>
+                <td>FECHA DESTINO</td>
+                <td>RESERVAS</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data let-columns="columns">
+            <tr class="text-sm">
+                <td>
+                    <span class="p-column-title">COD. VUELO</span>
+                    {{ data.flightNumber }}
+                </td>
+                <td>
+                    <span class="p-column-title">PARTIDA</span>
+                    {{ data.departure }}
+                </td>
+                <td>
+                    <span class="p-column-title">FECHA PARTIDA</span>
+                    {{ data.departureTime | date  : 'dd/mm/yyyy HH:mm aa' }}
+                </td>
+                <td>
+                    <span class="p-column-title">DESTINO</span>
+                    {{ data.arrival }}
+                </td>
+                <td>
+                    <span class="p-column-title">FECHA DESTINO</span>
+                    {{ data.arrivalTime | date : 'dd/mm/yyyy HH:mm aa' }}
+                </td>
+                <td>
+                    <span class="p-column-title">RESERVAS</span>
+                    <p-button
+                        icon="pi pi-ellipsis-h"
+                        [rounded]="true"
+                        [raised]="true"
+                        [text]="true"
+                        size="small"
+                        class="btn-options"
+                        (click)="selectedData($event, data.id)"></p-button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    <p-menu
+        #menu
+        class="menu-options"
+        [model]="items"
+        [popup]="true"
+        [appendTo]="'body'"></p-menu>
+</div>
