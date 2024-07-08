@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { DividerModule } from 'primeng/divider';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 
@@ -26,6 +27,7 @@ import { InputTextModule } from 'primeng/inputtext';
         InputTextModule,
         FormsModule,
         ButtonModule,
+        DividerModule
     ],
     templateUrl: './registro.component.html',
     styleUrl: './registro.component.scss',
