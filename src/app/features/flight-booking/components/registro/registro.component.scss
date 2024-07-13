@@ -1,0 +1,25 @@
+.selected-button {
+    background-color: skyblue;
+    color: white;
+}
+
+.seat-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.seat-row button {
+    margin: 0 5px;
+}
+
+.seat-row button.selected {
+    background-color: rgb(0, 198, 0);
+    color: white;
+}
+
+.seat-row button.unavailable {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}

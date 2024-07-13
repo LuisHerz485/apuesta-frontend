@@ -1,0 +1,79 @@
+<div class="grid grid-cols-2 gap-10">
+    <div class="bg-gray-100 rounded-xl p-10">
+        <h3 class="font-semibold">Asientos Seleccionados</h3>
+        <ol>
+            <li
+                *ngFor="let seat of selectedSeats$ | async"
+                class="flex font-semibold w-14 bg-gray-200 p-3 rounded-xl my-2">
+                {{ seat.codSeat }}
+            </li>
+        </ol>
+        <h3 class="mt-5">
+            <span class="font-semibold">Total: </span
+            >{{ totalPrice$ | async | currency }}
+        </h3>
+
+        
+    </div>
+
+    <form class="bg-gray-200 rounded-xl p-10" [formGroup]="paidForm">
+        <p class="mb-8 font-semibold">Datos de la tarjeta</p>
+        <p-floatLabel>
+            <p-inputNumber
+                id="nroCard"
+                [maxlength]="16"
+                class="w-full"
+                formControlName="cardNumber"
+                [useGrouping]="false"
+                [style]="{ width: '100%' }"
+                />
+
+            <label for="nroCard">Nro. Tarjeta</label>
+        </p-floatLabel>
+        <div class="grid grid-cols-2 gap-2 mt-8">
+            <div class="">
+            
+                <p-floatLabel>
+                    <input
+                        pInputText
+                        id="nroCard"
+                        [maxlength]="5"
+                        formControlName="cardNumber"
+                        />
+        
+                    <label for="nroCard">Fec. Vencimiento</label>
+                </p-floatLabel>
+            </div>
+            <div>
+                <p-floatLabel>
+                    <p-inputNumber
+                        id="cvv"
+                        [maxlength]="3"
+                        formControlName="cardNumber"
+                        [useGrouping]="false"
+                        />
+        
+                    <label for="cvv">CVV</label>
+                </p-floatLabel>
+            </div>
+        </div>
+
+        <div class="mt-8">
+            <p-floatLabel>
+                <input
+                    pInputText
+                    id="title"
+                    class="w-full"
+                    formControlName="title"
+                    [style]="{ width: '100%' }"
+                    />
+    
+                <label for="title">Nom. Titular</label>
+            </p-floatLabel>
+        </div>
+        
+
+        <p-button (onClick)="paid()" class="flex justify-center w-full mt-4"  [style]="{ width: '100%' }" label="Pagar"></p-button>
+    </form>
+
+</div>

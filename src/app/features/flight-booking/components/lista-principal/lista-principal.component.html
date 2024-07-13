@@ -1,0 +1,65 @@
+<app-loading></app-loading>
+
+<h1 class="text-2xl">Vuelos Disponibles</h1>
+<p-divider type="solid" class="w-full" />
+<div class="grid mt-4">
+    <div class="grid grid-cols-4 gap-4 mt-8 mb-4">
+        <p-floatLabel>
+            <p-calendar
+                id="period"
+                [(ngModel)]="date"
+                selectionMode="range"
+                inputId="period"
+                [style]="{ width: '100%' }"
+                appendTo="body">
+            </p-calendar>
+            <label for="period">Ida - Vuelta</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <p-inputNumber
+                class="w-full"
+                [(ngModel)]="codVuelo"
+                mode="decimal"
+                [style]="{ width: '100%' }"
+                inputId="withoutgrouping"
+                [useGrouping]="false"
+                id="idaVuelta" />
+
+            <label for="idaVuelta">Codigo Vuelo</label>
+        </p-floatLabel>
+        <p-floatLabel>
+            <p-inputNumber
+                id="nroPersonas"
+                [maxlength]="2"
+                class="w-full"
+                [(ngModel)]="nroPersonas"
+                mode="decimal"
+                [style]="{ width: '100%' }"
+                inputId="withoutgrouping"
+                [useGrouping]="false" />
+
+            <label for="nroPersonas">Nro. Personas</label>
+        </p-floatLabel>
+        <div>
+            <p-button
+                icon="pi pi-search"
+                [rounded]="true"
+                [text]="true"
+                [raised]="true"
+                severity="secondary"
+                class="mx-2"></p-button>
+            <p-button
+                icon="pi pi-filter-slash"
+                [rounded]="true"
+                [text]="true"
+                [raised]="true"
+                severity="secondary"
+                class="mx-4"></p-button>
+        </div>
+    </div>
+    <app-data-table
+        [columns]="columnsNames"
+        [data]="dataList()"
+        [options]="items"
+        (action)="setSelectedId($event)"></app-data-table>
+</div>

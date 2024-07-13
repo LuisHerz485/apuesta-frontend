@@ -1,1 +1,0 @@
-export {ENDPOINT_FLIGHTS} from './endpoints.const'
