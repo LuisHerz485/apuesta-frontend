@@ -13,7 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
-import { SEAT_STATUS } from '@/app/core/constants';
+import { SEAT_SETTING, SEAT_STATUS } from '@/app/core/constants';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { FlightService } from '../../services/flight.service';
@@ -49,7 +49,7 @@ export class RegistroComponent implements OnInit {
     protected idflightSelected = signal<number | undefined>(undefined);
 
     public seats: any[] = [];
-    public maxSelections = signal(4);
+    public maxSelections = signal<number>(SEAT_SETTING.CUSTOMER.MAX_SELECT);
     public rows : number = 20;
     public cols: number = 6;
 

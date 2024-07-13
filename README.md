@@ -2,6 +2,11 @@
 
 Proyecto realizado en [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
 
+## Implementacion Redux(NgRX)
+
+-   Flight Booking implementado con store (Actions, Effects, Reducers , State y Selectors) para la comunicacion entre las pantallas de datos
+-   Auth implementacion con store (Actions, effects, reducers) para comunicacion con el servicio
+
 ## Descripcion
 
 Prueba tecnica para Apuesta total, realizada con Angular 18 con un proceso de compra de boletos de avion
@@ -38,8 +43,11 @@ Para poder inicializar la aplicacion se debe ejecutar en el terminal `ng serve` 
 
 ## Pruebas
 
-1. Implementacion de backend con FrontEnd
-   ![Pruebas de implemtacion backend](image.png)
+1. Seleccion de asientos
+   ![Seleccion de asientos](.img/image.png)
 
-2. Seleccion de asientos
-   ![Seleccion de asientos](image-1.png)
+2. Implementacion de backend con FrontEnd
+   ![Pruebas de implemtacion backend](.img/page1.png)
+
+3. Interceptor con loading incorporado
+   ![Interceptor](.img/loading.png)
